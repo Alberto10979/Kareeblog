@@ -32,7 +32,7 @@ export default function AdminLogin() {
     <div className="admin-login-page">
       <div className="admin-login-card">
         <div className="admin-login-logo">
-          karee<span>.</span>
+          Kari Mash<span>.</span>
         </div>
         <h1>Admin Panel</h1>
         <p>Sign in to manage your blog</p>

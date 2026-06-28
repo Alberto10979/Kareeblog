@@ -11,7 +11,7 @@ export default function About() {
         </div>
 
         <div className="about-content">
-          <h1>Hey, I'm Karee.</h1>
+          <h1>Hey, I'm Kari Mash.</h1>
           <p className="about-lead">
             I write about the things that live rent-free in my head — ideas I can't shake,
             experiences I'm still processing, observations that probably only matter to me

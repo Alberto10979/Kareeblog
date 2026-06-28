@@ -22,7 +22,7 @@ export default function AdminLayout() {
     <div className="admin-layout">
       <aside className="admin-sidebar">
         <div className="admin-sidebar-logo">
-          karee<span>.</span>
+          Kari Mash<span>.</span>
         </div>
         <div className="admin-sidebar-label">Blog Admin</div>
 

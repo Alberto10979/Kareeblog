@@ -1,19 +1,33 @@
 import { useState } from 'react';
+import { supabase } from '../lib/supabase';
 import './Newsletter.css';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error | duplicate
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email.trim()) return;
-
     setStatus('loading');
-    setTimeout(() => {
-      setStatus('success');
-      setEmail('');
-    }, 800);
+
+    const { error } = await supabase
+      .from('subscribers')
+      .insert({ email: email.trim().toLowerCase() });
+
+    if (error) {
+      console.error('Subscribe error:', error);
+      // Unique constraint violation = already subscribed
+      if (error.code === '23505') {
+        setStatus('duplicate');
+      } else {
+        setStatus('error');
+      }
+      return;
+    }
+
+    setStatus('success');
+    setEmail('');
   };
 
   return (
@@ -24,6 +38,12 @@ export default function Newsletter() {
             <span className="success-icon">✦</span>
             <h3>You're in!</h3>
             <p>First to know when something new drops. See you on the other side.</p>
+          </div>
+        ) : status === 'duplicate' ? (
+          <div className="newsletter-success">
+            <span className="success-icon">✦</span>
+            <h3>Already subscribed!</h3>
+            <p>You're already on the list. You'll hear from me soon.</p>
           </div>
         ) : (
           <>
@@ -43,9 +63,12 @@ export default function Newsletter() {
                   disabled={status === 'loading'}
                 />
                 <button type="submit" disabled={status === 'loading'}>
-                  {status === 'loading' ? '...' : 'Subscribe'}
+                  {status === 'loading' ? '…' : 'Subscribe'}
                 </button>
               </div>
+              {status === 'error' && (
+                <p className="newsletter-error">Something went wrong. Please try again.</p>
+              )}
             </form>
           </>
         )}

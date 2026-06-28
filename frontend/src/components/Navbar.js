@@ -13,7 +13,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-inner">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          karee<span className="logo-dot">.</span>
+          Kari Mash<span className="logo-dot">.</span>
         </Link>
 
         <div className={`navbar-links ${menuOpen ? 'open' : ''}`}>

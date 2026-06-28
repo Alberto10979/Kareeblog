@@ -156,7 +156,7 @@ export default function BlogPost() {
         <div className="post-author-card">
           <div className="author-avatar">K</div>
           <div className="author-info">
-            <strong>Karee</strong>
+            <strong>Kari Mash</strong>
             <span>Writer, overthinker, enthusiast of late-night ideas.</span>
           </div>
         </div>

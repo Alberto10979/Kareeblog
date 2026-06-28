@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <Link to="/" className="footer-logo">karee<span>.</span></Link>
+          <Link to="/" className="footer-logo">Kari Mash<span>.</span></Link>
           <p className="footer-tagline">Thoughts, ideas & everything in between.</p>
         </div>
 
@@ -18,7 +18,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} Karee. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Kari Mash. All rights reserved.</span>
         <span className="footer-credit">Made with care & too much tea.</span>
       </div>
     </footer>
