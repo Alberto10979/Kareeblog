@@ -686,6 +686,10 @@ html.dark .btn-remove-image:hover {
 
 /* ─── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
   .admin-sidebar {
     width: 100%;
     height: auto;
